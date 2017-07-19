@@ -5,6 +5,9 @@
  */
 package yzkdcconfigurator;
 
+import java.util.Enumeration;
+import javax.comm.CommPortIdentifier;
+
 /**
  *
  * @author lgerard
@@ -27,18 +30,19 @@ public class YZKdcConfigurator {
     public YZKdcConfigurator(){
         Log.log(appzName);
 	Log.log(version);
-	Log.log("----------------------------------------");
-	
-	//Création de l'interface
-	interf = new GraphicMainInterface(this);
-        
-        interf.repaint();
-	interf.revalidate();
-	
-	//Log ready
-	Log.log("Configuration et interface prêtes à l'utilisation");
-        
+		Log.log("----------------------------------------");
+
+		//Création de l'interface
+		interf = new GraphicMainInterface(this);
+
+		interf.repaint();
+		interf.revalidate();
+
+		//Log ready
+		Log.log("Configuration et interface prêtes à l'utilisation");
+
         Commands.init();
+		
     }
     
     public void startProcess(String in_port){
@@ -61,5 +65,5 @@ public class YZKdcConfigurator {
         kdc.init();
         kdc.unlockProcess();
     }
-    
+	
 }
